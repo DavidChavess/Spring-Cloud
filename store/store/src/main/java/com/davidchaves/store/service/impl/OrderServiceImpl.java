@@ -19,7 +19,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO create(OrderDTO orderDTO) {
         ResponseEntity<SupplierDTO> supplier = restTemplate
                 .exchange(
-                    "http://fornecedor/suppliers/".concat(orderDTO.getAddress().getState()),
+                    "http://supplier/suppliers/".concat(orderDTO.getAddress().getState()),
                     HttpMethod.GET,
                     null,
                     SupplierDTO.class

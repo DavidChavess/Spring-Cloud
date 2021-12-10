@@ -29,6 +29,9 @@ dependencies {
 	implementation 'org.modelmapper:modelmapper:2.4.2'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+
 }
 
 dependencyManagement {
