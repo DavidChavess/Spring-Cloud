@@ -1,5 +1,6 @@
 package com.davidchaves.supplier.repository;
 
+import com.davidchaves.supplier.model.Product;
 import com.davidchaves.supplier.model.Supplier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -7,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface SupplierRepository extends JpaRepository<Supplier, Integer> {
-    Optional<Supplier> findByState(String state);
-    Optional<Supplier> findByUiid(String uiid);
+public interface ProductRepository extends JpaRepository<Product, Integer> {
+    Optional<Product> findByUiid(String uiid);
 }

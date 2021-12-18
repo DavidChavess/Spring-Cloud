@@ -1,20 +1,18 @@
 package com.davidchaves.supplier.model;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "TB_SUPPLIER")
-public class Supplier {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table(name = "TB_PRODUCT")
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +21,14 @@ public class Supplier {
     @Column(unique = true, nullable = false)
     private String uiid;
 
+    @Column(nullable = false, length = 100)
     private String name;
 
-    private String address;
-
-    @Column( length = 2 )
     private String state;
+
+    @Column(length = 150)
+    private String description;
+
+    @Column(nullable = false)
+    private BigDecimal price;
 }

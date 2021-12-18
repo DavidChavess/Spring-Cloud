@@ -1,15 +1,17 @@
-package com.davidchaves.store.dto;
+package com.davidchaves.supplier.controller.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
-@Getter
-@NoArgsConstructor
 @AllArgsConstructor
-public class ItenDTO {
+@NoArgsConstructor
+@Getter
+@Setter
+public class OrderItemRequest {
     private String productUiid;
     private BigDecimal quantity;
 

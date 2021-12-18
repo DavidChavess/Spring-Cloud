@@ -17,11 +17,14 @@ public class OrderServiceImpl implements OrderService {
     private final DiscoveryClient discoveryClient;
 
     @Override
-    public OrderDTO create(OrderDTO orderDTO) {
-        final SupplierDTO supplier = supplierClient.getByState(orderDTO.getAddress().getState());
-        System.out.println(supplier);
+    public void create(OrderDTO orderDTO) {
+        supplierClient.create(orderDTO);
         getInstancesInfo();
-        return null;
+    }
+
+    @Override
+    public SupplierDTO getByState(String state) {
+        return supplierClient.getByState(state);
     }
 
     private void getInstancesInfo() {

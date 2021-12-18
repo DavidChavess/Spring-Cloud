@@ -1,22 +1,24 @@
-package com.davidchaves.store.dto;
+package com.davidchaves.supplier.controller.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
-@Getter
-@NoArgsConstructor
 @AllArgsConstructor
-public class OrderDTO {
+@NoArgsConstructor
+@Getter
+@Setter
+public class OrderRequest {
     private String supplierUiid;
-    private Set<ItenDTO> itens;
-
+    private Set<OrderItemRequest> itens = new HashSet<>();
 
     @Override
     public String toString() {
         return "{supplierUiid='" + supplierUiid + "', itens='" + itens + "'}";
     }
 }
+

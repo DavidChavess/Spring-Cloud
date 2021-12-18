@@ -1,7 +1,8 @@
 package com.davidchaves.supplier.service.impl;
 
-import com.davidchaves.supplier.dto.SupplierDTO;
+import com.davidchaves.supplier.controller.response.SupplierResponse;
 import com.davidchaves.supplier.exception.NotFoundException;
+import com.davidchaves.supplier.model.Supplier;
 import com.davidchaves.supplier.repository.SupplierRepository;
 import com.davidchaves.supplier.service.SupplierService;
 import lombok.RequiredArgsConstructor;
@@ -16,9 +17,16 @@ public class SupplierServiceImpl implements SupplierService {
     private final ModelMapper mapper;
 
     @Override
-    public SupplierDTO getBySigla(String sigla) {
+    public SupplierResponse getBySigla(String sigla) {
         return repository.findByState(sigla)
-                .map(supplier -> mapper.map(supplier, SupplierDTO.class))
+                .map(supplier -> mapper.map(supplier, SupplierResponse.class))
                 .orElseThrow(() -> new NotFoundException("Fornecedor não encontrado."));
     }
+
+    @Override
+    public Supplier getByUiid(String uiid) {
+        return repository.findByUiid(uiid)
+                .orElseThrow(() -> new NotFoundException("Fornecedor não encontrado."));
+    }
+
 }

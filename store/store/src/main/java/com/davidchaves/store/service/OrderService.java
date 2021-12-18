@@ -1,7 +1,9 @@
 package com.davidchaves.store.service;
 
 import com.davidchaves.store.dto.OrderDTO;
+import com.davidchaves.store.dto.SupplierDTO;
 
 public interface OrderService {
-    OrderDTO create(OrderDTO orderDTO );
+    void create(OrderDTO orderDTO);
+    SupplierDTO getByState(String state);
 }
