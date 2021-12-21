@@ -4,6 +4,7 @@ import com.davidchaves.store.client.SupplierClient;
 import com.davidchaves.store.dto.OrderDTO;
 import com.davidchaves.store.dto.SupplierDTO;
 import com.davidchaves.store.service.OrderService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public class OrderServiceImpl implements OrderService {
 
     private final DiscoveryClient discoveryClient;
 
+    @HystrixCommand(fallbackMethod = "defaultError")
     @Override
     public void create(OrderDTO orderDTO) {
         supplierClient.create(orderDTO);
@@ -27,6 +29,9 @@ public class OrderServiceImpl implements OrderService {
         return supplierClient.getByState(state);
     }
 
+    public void defaultError(OrderDTO orderDTO){
+
+    }
     private void getInstancesInfo() {
         discoveryClient.getInstances("supplier")
         .forEach(instance -> {

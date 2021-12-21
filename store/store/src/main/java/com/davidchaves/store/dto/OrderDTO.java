@@ -12,8 +12,8 @@ import java.util.Set;
 @AllArgsConstructor
 public class OrderDTO {
     private String supplierUiid;
+    private AddressDTO addressDTO;
     private Set<ItenDTO> itens;
-
 
     @Override
     public String toString() {

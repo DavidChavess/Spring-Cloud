@@ -28,6 +28,10 @@ public class Order {
 
     private Integer preparationTime;
 
+    private String address;
+
+    private BigDecimal total;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")
     private final Set<OrderItem> itens = new HashSet<>();
@@ -35,8 +39,6 @@ public class Order {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
-
-    private BigDecimal total;
 
     public void addItem(OrderItem orderItem){
         itens.add(orderItem);

@@ -1,5 +1,6 @@
 package com.davidchaves.supplier.service.impl;
 
+import com.davidchaves.supplier.controller.request.AddressRequest;
 import com.davidchaves.supplier.controller.request.OrderRequest;
 import com.davidchaves.supplier.controller.response.OrderResponse;
 import com.davidchaves.supplier.model.Order;
@@ -39,6 +40,7 @@ public class OrderServiceImpl implements OrderService {
                 .uiid(UUID.randomUUID().toString())
                 .preparationTime(orderRequest.getItens().size())
                 .status(OrderStatus.RECEBIDO)
+                .address(orderRequest.getAddress().toString())
                 .supplier(supplierService.getByUiid(orderRequest.getSupplierUiid()))
                 .build();
         addOrderItem(order, orderRequest);

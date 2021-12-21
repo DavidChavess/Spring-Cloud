@@ -14,11 +14,12 @@ import java.util.Set;
 @Setter
 public class OrderRequest {
     private String supplierUiid;
+    private AddressRequest address;
     private Set<OrderItemRequest> itens = new HashSet<>();
 
     @Override
     public String toString() {
-        return "{supplierUiid='" + supplierUiid + "', itens='" + itens + "'}";
+        return "{supplierUiid='" + supplierUiid + "', address='" + address + "', itens='" + itens + "'}";
     }
 }
 
