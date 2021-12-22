@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @RequiredArgsConstructor
 @Service
 public class DeliveryServiceImpl implements DeliveryService {
@@ -19,9 +21,10 @@ public class DeliveryServiceImpl implements DeliveryService {
 	@Override
 	public VoucherDTO reserve(DeliveryDTO deliveryDTO) {
 		Delivery delivery = mapper.map(deliveryDTO, Delivery.class);
+		delivery.setUiid(UUID.randomUUID().toString());
 		delivery.setDeliveryForecast(deliveryDTO.getDateForDelivery().plusDays(1L));
 		delivery = repository.save(delivery);
-		return new VoucherDTO(delivery.getId(), delivery.getDeliveryForecast());
+		return new VoucherDTO(delivery.getUiid(), delivery.getDeliveryForecast());
 	}
 
 }

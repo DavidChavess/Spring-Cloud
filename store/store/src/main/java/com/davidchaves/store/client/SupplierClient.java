@@ -1,6 +1,7 @@
 package com.davidchaves.store.client;
 
 import com.davidchaves.store.dto.OrderDTO;
+import com.davidchaves.store.dto.OrderResponse;
 import com.davidchaves.store.dto.SupplierDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,5 +16,5 @@ public interface SupplierClient {
     SupplierDTO getByState(@PathVariable String state);
 
     @PostMapping("/orders")
-    void create(@RequestBody OrderDTO orderDTO);
+    OrderResponse create(@RequestBody OrderDTO orderDTO);
 }

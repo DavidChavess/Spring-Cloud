@@ -1,16 +1,14 @@
-package com.delivery.deliveryapi.dto;
+package com.davidchaves.store.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+@Builder
 public class DeliveryDTO {
 	private String orderUiid;
 	private LocalDate dateForDelivery;

@@ -40,7 +40,6 @@ public class OrderServiceImpl implements OrderService {
                 .uiid(UUID.randomUUID().toString())
                 .preparationTime(orderRequest.getItens().size())
                 .status(OrderStatus.RECEBIDO)
-                .address(orderRequest.getAddress().toString())
                 .supplier(supplierService.getByUiid(orderRequest.getSupplierUiid()))
                 .build();
         addOrderItem(order, orderRequest);

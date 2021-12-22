@@ -3,20 +3,21 @@ package com.davidchaves.store.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Setter;
 
 import java.util.Set;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderDTO {
     private String supplierUiid;
-    private AddressDTO addressDTO;
+    private AddressDTO address;
     private Set<ItenDTO> itens;
 
     @Override
     public String toString() {
-        return "{supplierUiid='" + supplierUiid + "', itens='" + itens + "'}";
+        return "{address='"+ address + "', itens='" + itens + "'}";
     }
 }

@@ -18,7 +18,8 @@ public class Delivery {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Long orderId;
+	private String uiid;
+	private String orderUiid;
 	private LocalDate dateForDelivery;
 	private String originAddress;
 	private String destinationAddress;

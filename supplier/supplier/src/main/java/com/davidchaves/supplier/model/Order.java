@@ -28,8 +28,6 @@ public class Order {
 
     private Integer preparationTime;
 
-    private String address;
-
     private BigDecimal total;
 
     @OneToMany(cascade = CascadeType.ALL)

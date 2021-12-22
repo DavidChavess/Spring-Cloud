@@ -1,5 +1,6 @@
 package com.davidchaves.store.controller;
 
+import com.davidchaves.store.controller.response.PurchaseResponse;
 import com.davidchaves.store.dto.OrderDTO;
 import com.davidchaves.store.dto.SupplierDTO;
 import com.davidchaves.store.service.OrderService;
@@ -18,10 +19,11 @@ public class OrderController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public void create(@RequestBody OrderDTO orderDTO){
+    public PurchaseResponse create(@RequestBody OrderDTO orderDTO){
         log.info("Criando o pedido {}", orderDTO);
-        orderService.create(orderDTO);
-        log.info("pedido criado!");
+        var purchase = orderService.create(orderDTO);
+        log.info("pedido criado! {}", purchase);
+        return purchase;
     }
 
     @GetMapping("/{state}")

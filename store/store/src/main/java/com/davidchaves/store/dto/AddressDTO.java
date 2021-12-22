@@ -13,4 +13,10 @@ public class AddressDTO {
     private String district;
     private String number;
     private String state;
+
+    @Override
+    public String toString(){
+        return street + " ," + district + " ,Nº " + number + " ," + city + " - " + state;
+    }
+
 }

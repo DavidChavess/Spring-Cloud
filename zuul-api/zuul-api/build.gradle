@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-group = 'com.david-chaves'
+group = 'com.zuul'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -18,15 +18,10 @@ ext {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-zuul:2.2.9.RELEASE'
 
-	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
-
-	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
-	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 dependencyManagement {

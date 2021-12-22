@@ -1,4 +1,4 @@
-package com.delivery.deliveryapi.dto;
+package com.davidchaves.store.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
